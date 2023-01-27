@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { lazy } from 'react';
 
-function App() {
+const Intro = lazy(() => import('./components/intro/Intro'))
+const Topbar = lazy(() => import('./components/topbar/Topbar'))
+const Header = lazy(() => import('./components/header/Header'))
+
+const Experience = lazy(() => import('./components/experience/Experience'))
+const Portfolio = lazy(() => import('./components/portfolio/Portfolio'))
+// const Testimonials = lazy(() => import('./components/testimonials/Testimonials'))
+const Contact = lazy(() => import('./components/contact/Contact'))
+const Footer = lazy(() => import('./components/footer/Footer'))
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Header />
+      <Topbar />
+      <Intro />
+      <Experience />
+      <Portfolio />
+      {/* <Testimonials /> */}
+      <Contact />
+      <Footer />
+    </>
+  )
 }
 
-export default App;
+export default App
